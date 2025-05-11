@@ -26,7 +26,8 @@
 #include <linux/gpio.h>
 #include <linux/of_gpio.h>
 
-extern struct class *camera_class; /*sys/class/camera*/
+struct class *camera_class;
+EXPORT_SYMBOL(camera_class);  // Makes it available to other modules
 
 struct device *s2mpb02_led_dev;
 struct s2mpb02_led_data **global_led_datas;
