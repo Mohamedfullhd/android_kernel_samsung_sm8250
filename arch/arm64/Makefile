@@ -135,10 +135,6 @@ else
 KBUILD_IMAGE   := Image
 endif
 
-ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
-KBUILD_TARGET   += dtbo.img
-endif
-
 # Default target when executing plain make
 boot		:= arch/arm64/boot
 
@@ -157,6 +153,12 @@ export DTC_FLAGS := -@
 endif
 
 all:	$(KBUILD_DTBS) $(KBUILD_TARGET)
+
+KBUILD_DTBO_IMG := dtbo.img
+KBUILD_DTB_IMG := dtb.img
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+export DTC_FLAGS := -@
+endif
 
 Image: vmlinux
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
@@ -185,8 +187,14 @@ Image.gz-dtb: vmlinux scripts dtbs Image.gz
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
-dtbo.img: dtbs
+$(KBUILD_DTBO_IMG): dtbs
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+
+all: $(KBUILD_DTBO_IMG)
+$(KBUILD_DTB_IMG): dtbs
+	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+
+all: $(KBUILD_DTB_IMG)
 endif
 
 PHONY += vdso_install
