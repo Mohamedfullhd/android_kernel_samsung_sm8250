@@ -15,7 +15,7 @@ chmod +x scripts/crypto/fips_crypto_integrity.py
 
 # change DEFCONFIG to you are defconfig name or device codename
 
-DEFCONFIG="vendor/x1q_kor_singlex_defconfig"
+DEFCONFIG="vendor/y2q_kor_singlex_defconfig"
 
 # you can set you name or host name(optional)
 
