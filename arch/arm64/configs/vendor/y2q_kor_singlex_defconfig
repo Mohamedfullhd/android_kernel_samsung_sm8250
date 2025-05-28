@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 4.19.280 Kernel Configuration
+# Linux/arm64 4.19.325 Kernel Configuration
 #
 
 #
@@ -21,8 +21,8 @@ CONFIG_INIT_ENV_ARG_LIMIT=32
 # CONFIG_COMPILE_TEST is not set
 CONFIG_LOCALVERSION=""
 CONFIG_LOCALVERSION_AUTO=y
-CONFIG_BUILD_SALT=""
-CONFIG_DEFAULT_HOSTNAME="(none)"
+CONFIG_BUILD_SALT="Yacinegti-DZ"
+CONFIG_DEFAULT_HOSTNAME="Yacinegti-Kernel"
 CONFIG_SWAP=y
 # CONFIG_SYSVIPC is not set
 # CONFIG_POSIX_MQUEUE is not set
